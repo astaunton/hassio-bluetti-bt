@@ -58,7 +58,7 @@ class ProtocolV2Device(BluettiDevice):
         # Pack selector
         # self.struct.add_uint_field('pack_num', ?) # internal
         
-        self.struct.add_enum_field("ups_mode", 3001, UpsMode)
+        self.struct.add_enum_field("ups_mode", 2226, UpsMode)
 
 
         super().__init__(address, type, sn)
@@ -87,7 +87,7 @@ class ProtocolV2Device(BluettiDevice):
             ReadHoldingRegisters(2020, 1),
             ReadHoldingRegisters(2021, 1),
             ReadHoldingRegisters(2225, 1),
-            ReadHoldingRegisters(3001, 1),
+            ReadHoldingRegisters(2226, 1),
         ]
 
     @property
