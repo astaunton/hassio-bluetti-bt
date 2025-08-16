@@ -1,4 +1,4 @@
-Updated with experimental Elite 200 V2 support on encryption branch.
+Updated with experimental Elite 200 V2 support from encryption branch and https://github.com/Patrick762/hassio-bluetti-bt/pull/184.
 
 # hassio-bluetti-bt
 [![hacs_badge](https://img.shields.io/badge/HACS-Default-41BDF5.svg)](https://github.com/hacs/integration)
