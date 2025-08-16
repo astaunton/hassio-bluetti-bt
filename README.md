@@ -1,3 +1,5 @@
+Updated with experimental Elite 200 V2 support on encryption branch.
+
 # hassio-bluetti-bt
 [![hacs_badge](https://img.shields.io/badge/HACS-Default-41BDF5.svg)](https://github.com/hacs/integration)
 [![Validate with hassfest](https://github.com/Patrick762/hassio-bluetti-bt/actions/workflows/hassfest_validation.yml/badge.svg)](https://github.com/Patrick762/hassio-bluetti-bt/actions/workflows/hassfest_validation.yml)
@@ -31,6 +33,7 @@ After the installation, you can use this button to install the integration:
 - EP600 (tested)
 - EP760 (basic data)
 - EP800 (basic data)
+- Elite 200 V2 (basic data)
 
 ### Available controls:
 If enabled in the Integration options (you need to reload the integration if you change this option):
