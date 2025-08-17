@@ -29,7 +29,7 @@ class ProtocolV2Device(BluettiDevice):
         self.struct.add_decimal_field('total_ac_consumption', 152, 1)
         self.struct.add_decimal_field('power_generation', 154, 1) # Total power generated since last reset (kwh)
         self.struct.add_decimal_field('total_grid_consumption', 156, 1)
-        self.struct.add_decimal_field('total_grid_feed', 158, 1)
+        #self.struct.add_decimal_field('total_grid_feed', 158, 1) Unsure what this one is
         self.struct.add_enum_field("charging_mode", 160, ChargingMode)
         
         #self.struct.add_decimal_field('???', 162)
@@ -77,7 +77,7 @@ class ProtocolV2Device(BluettiDevice):
             ReadHoldingRegisters(152, 1),
             ReadHoldingRegisters(154, 1),
             ReadHoldingRegisters(156, 1),
-            ReadHoldingRegisters(158, 1),
+            #ReadHoldingRegisters(158, 1),
             ReadHoldingRegisters(160, 1),
             ReadHoldingRegisters(1314, 1),
             ReadHoldingRegisters(2011, 1),
