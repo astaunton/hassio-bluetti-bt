@@ -4,7 +4,7 @@ from typing import List
 
 from ..utils.commands import ReadHoldingRegisters
 from ..utils.struct import DeviceStruct
-from ..field_enums import ChargingMode
+from ..field_enums import ChargingMode#, UpsMode
 from .BluettiDevice import BluettiDevice
 
 
@@ -57,6 +57,8 @@ class ProtocolV2Device(BluettiDevice):
 
         # Pack selector
         # self.struct.add_uint_field('pack_num', ?) # internal
+        
+        #self.struct.add_enum_field("ups_mode", ???, UpsMode)
 
 
         super().__init__(address, type, sn)
