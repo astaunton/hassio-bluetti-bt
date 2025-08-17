@@ -4,7 +4,7 @@ from typing import List
 
 from ..utils.commands import ReadHoldingRegisters
 from ..utils.struct import DeviceStruct
-from ..field_enums import ChargingMode
+from ..field_enums import ChargingMode#, UpsMode
 from .BluettiDevice import BluettiDevice
 
 
@@ -29,7 +29,7 @@ class ProtocolV2Device(BluettiDevice):
         self.struct.add_decimal_field('total_ac_consumption', 152, 1)
         self.struct.add_decimal_field('power_generation', 154, 1) # Total power generated since last reset (kwh)
         self.struct.add_decimal_field('total_grid_consumption', 156, 1)
-        self.struct.add_decimal_field('total_grid_feed', 158, 1)
+        #self.struct.add_decimal_field('total_grid_feed', 158, 1) Unsure what this one is
         self.struct.add_enum_field("charging_mode", 160, ChargingMode)
         
         #self.struct.add_decimal_field('???', 162)
@@ -57,6 +57,8 @@ class ProtocolV2Device(BluettiDevice):
 
         # Pack selector
         # self.struct.add_uint_field('pack_num', ?) # internal
+        
+        #self.struct.add_enum_field("ups_mode", ???, UpsMode)
 
 
         super().__init__(address, type, sn)
@@ -64,32 +66,16 @@ class ProtocolV2Device(BluettiDevice):
     @property
     def polling_commands(self) -> List[ReadHoldingRegisters]:
         return [
-            ReadHoldingRegisters(110, 6),
-            ReadHoldingRegisters(116, 4),
-            ReadHoldingRegisters(154, 1),
-            ReadHoldingRegisters(102, 1),
-            ReadHoldingRegisters(140, 1),
-            ReadHoldingRegisters(142, 1),
-            ReadHoldingRegisters(144, 1),
-            ReadHoldingRegisters(146, 1),
-            ReadHoldingRegisters(148, 1),
-            ReadHoldingRegisters(150, 1),
-            ReadHoldingRegisters(152, 1),
-            ReadHoldingRegisters(154, 1),
-            ReadHoldingRegisters(156, 1),
-            ReadHoldingRegisters(158, 1),
-            ReadHoldingRegisters(160, 1),
+            ReadHoldingRegisters(102, 158),
             ReadHoldingRegisters(1314, 1),
-            ReadHoldingRegisters(2011, 1),
-            ReadHoldingRegisters(2012, 1),
-            ReadHoldingRegisters(2020, 1),
-            ReadHoldingRegisters(2021, 1),
+            ReadHoldingRegisters(2011, 2),
+            ReadHoldingRegisters(2020, 2),
             ReadHoldingRegisters(2225, 1),
         ]
 
     @property
     def writable_ranges(self) -> List[range]:
-        return [range(2000, 2022),range(2200, 2226)]
+        return [range(2011, 2022),range(2200, 2226)]
 
     @property
     def pack_polling_commands(self) -> List[ReadHoldingRegisters]:
